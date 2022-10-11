@@ -11,9 +11,9 @@ include_once("connection.php");
         if(isset($_GET['id'])){
             $id = $_GET['id'];
             $sql = "Select Product_ID from cart where Username = '$user' and Product_ID = '$id'";
-            $qr = mysqli_query($conn, $sql);
+            $qr = pg_query($conn, $sql);
 
-            if(mysqli_num_rows($qr) == 0){
+            if(pg_num_rows($qr) == 0){
                 $query = "INSERT INTO cart(username, Product_ID, Quantity_Pro, Date)
                 Values('$user', '$id', 1, CURDATE())";
             }
