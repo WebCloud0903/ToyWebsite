@@ -20,7 +20,7 @@
                 $_SESSION['login'] = $r[0];
             }
             
-            header("Location: Home.php");
+            header("Location: index.php");
         }
         else{
             echo "<script>alert('Invalid username or password')</script>";
