@@ -69,7 +69,7 @@ include_once("connection.php");
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="Home.php">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="Product.php">Product</a></li>
                     </ul>
                     <a href="Order.php" class="btn btn-primary" id="btn-order">Order</a>
