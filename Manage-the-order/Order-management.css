@@ -1,0 +1,17 @@
+body{
+    background: url('../Image/Background-shoe-shop.jpg');
+}
+.table{
+    background-color: aliceblue;
+}
+.navbar-brand img{
+    width: 135px;
+    height: 65px;
+    padding: 11px 15px;
+    margin-top: -22px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+.container{
+    margin-top: 130px;
+}

@@ -1,0 +1,59 @@
+body{
+    background: url('./Image/Background-shoe-shop.jpg');
+    background-size: auto;
+}
+.navbar-brand img{
+    width: 135px;
+    height: 65px;
+    padding: 11px 15px;
+    margin-top: -22px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+.card{
+    background-color: aqua;
+    margin-top: 5px;
+}
+img{
+    width: 250px;
+    height: 250px;
+    margin-left: 40px;
+}
+.name-shoe{
+    margin-left: 125px;
+    color: black;
+    font-size: 15px;
+}
+.price{
+    margin-left: 125px;
+    color: red;
+    font-size: 15px;
+}
+.quantity{
+    width: 40px;
+    margin-left: 120px;
+    margin-bottom: 5px;
+}
+#btn-update{
+    margin-left: 0px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+#btn-delete{
+    margin-left: 120px;
+    margin-bottom: 5px;
+}
+#btn-order{
+    margin-top: 7px;
+    margin-left: 1000px;
+}
+#total-price{
+    background-color: aliceblue;
+    margin-top: -20px;
+    margin-left: 15px;
+    width: 135px;
+}
+#total-price div{
+    color: red;
+}
+

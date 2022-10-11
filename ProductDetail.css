@@ -1,0 +1,39 @@
+body{
+    background: url('./Image/Background-shoe-shop.jpg');
+    background-size: auto;
+}
+.navbar-brand img{
+    width: 135px;
+    height: 65px;
+    padding: 11px 15px;
+    margin-top: -22px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+#wrap{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.total-detail{
+    width: 1000px;
+    background-color: aqua;
+    display: flex;
+    margin-top: -60px;
+}
+.detail-info{
+    margin-left: 15px;
+}
+.detail img{
+    width: 200px;
+    height: 200px;
+}
+.name-img{
+    font-size: 30px;
+    color: blue;
+}
+.price{
+    color: red;
+}

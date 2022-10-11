@@ -1,0 +1,37 @@
+body{
+    background: url('./Image/Background-shoe-shop.jpg');
+    background-size: auto;
+}
+.navbar-brand img{
+    width: 135px;
+    height: 65px;
+    padding: 11px 15px;
+    margin-top: -22px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+.content{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+.cover{
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 2px 2px 17px 10px rgb(255 255 255 / 80%);
+    width: 300px;
+    height: 300px;
+}
+#title{
+    color: white;
+    text-align: center;
+}
+.btn{
+    margin-top: 20px;
+    margin-left: 45px;
+}
+.btn a{
+    color: beige;
+    font-size: 20px;
+}
