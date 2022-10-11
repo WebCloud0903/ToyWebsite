@@ -27,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="../Image/shoeLogo.webp"></a>
+            <a class="navbar-brand" href="index.php"><img src="../Image/shoeLogo.webp"></a>
         </div>
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="nav navbar-nav">
