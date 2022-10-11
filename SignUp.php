@@ -23,15 +23,15 @@
         $email = $_POST['email'];
         
         $sql = "Select Username from customer where Username = '$uname'";
-        $qr = mysqli_query($conn, $sql);
+        $qr = pg_query($conn, $sql);
 
         $sql2 = "Select Email from customer where Email = '$email'";
-        $re = mysqli_query($conn, $sql2);
+        $re = pg_query($conn, $sql2);
 
-        if(mysqli_num_rows($qr) > 0){
+        if(pg_num_rows($qr) > 0){
             echo "<script>alert ('Invalid user')</Script>";
         }
-        else if(mysqli_num_rows($re)){
+        else if(pg_num_rows($re)){
             echo "<script>alert ('Email already exist')</Script>";
         }
         else{
@@ -66,7 +66,7 @@
             else{
                 $sql = "Insert into customer(Username, Password, Fullname, Email, Address, Telephone, Gender, Birthday, Type)
                         Values('$uname', '$pwd', '$fullname', '$email', '$address', '$phone', '$gender', '$birthday', '$type')";
-                $qr = mysqli_query($conn, $sql);
+                $qr = pg_query($conn, $sql);
                 header("Location: Login.php");
             }
         }

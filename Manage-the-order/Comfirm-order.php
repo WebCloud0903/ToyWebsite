@@ -7,7 +7,7 @@
         $id = $_GET['id'];
         // $confirm = 'Delivery';
         $sql = "Update orders set Status = 'Delivery' , DeliveryDate = CURDATE() where Order_ID = $id";
-        $qr = mysqli_query($conn, $sql);
+        $qr = pg_query($conn, $sql);
         header("Location: Order-management.php");
     }
 ?>

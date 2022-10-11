@@ -10,6 +10,6 @@
 
 <?php
     $sql = "Delete from orders where Order_ID = '$id'";
-    $qr = mysqli_query($conn, $sql);
+    $qr = pg_query($conn, $sql);
     header("location: Order-management.php");
 ?>

@@ -57,8 +57,8 @@
             <tbody>
                 <?php 
                     $sql = "select * from product";
-                    $qr = mysqli_query($conn, $sql);
-                    while($row = mysqli_fetch_assoc($qr)){?>
+                    $qr = pg_query($conn, $sql);
+                    while($row = pg_fetch_assoc($qr)){?>
                         <tr>
                             <td><?=$row['Product_ID']?></td>
                             <td><?=$row['Name']?></td>   

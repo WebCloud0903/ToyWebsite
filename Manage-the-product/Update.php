@@ -56,8 +56,8 @@
  
     <?php
         $sql = "Select * from product where Product_ID = '$id'";
-        $qr = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($qr);
+        $qr = pg_query($conn, $sql);
+        $row = pg_fetch_assoc($qr);
     
         if(isset($_POST['update'])){
             $name = $_POST['name'];
@@ -78,7 +78,7 @@
             if($name != "" && $quantity != "" && $price != "" && $status != ""){
                 $sql = "Update product set Name='$name', Quantity=$quantity, Price=$price, Pro_img='$img',
                  Pro_detail='$detail', Status='$status' where Product_ID='$id'";
-                $qr = mysqli_query($conn, $sql);
+                $qr = pg_query($conn, $sql);
                 header("location: Product-management.php");
             }
         }

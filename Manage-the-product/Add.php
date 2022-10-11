@@ -68,7 +68,7 @@
             if($id != "" && $name != "" && $quantity != "" && $price != "" && $status != ""){
                 $sql = "Insert into product(Product_ID, Name, Quantity, Price, Pro_img, Pro_detail, Status) 
                 values('$id', '$name', $quantity, $price, '$img', '$detail', '$status')";
-                $qr = mysqli_query($conn, $sql);
+                $qr = pg_query($conn, $sql);
                 header("location: Product-management.php");
             }
             

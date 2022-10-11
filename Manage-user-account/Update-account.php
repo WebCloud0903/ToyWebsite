@@ -57,8 +57,8 @@
 
     <?php
         $sql = "Select * from customer where Username = '$user '";
-        $qr = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_array($qr);
+        $qr = pg_query($conn, $sql);
+        $row = pg_fetch_array($qr);
     ?>
 
     <?php
@@ -78,7 +78,7 @@
                 $sql = "Update customer set Username='$uname', Password='$pwd', Fullname='$fullname', Email='$email',
                         Address='$address', Telephone='$phone', Gender='$gender', Birthday='$birthday', Type='$type' 
                         where Username = '$user'";
-                $qr = mysqli_query($conn, $sql);
+                $qr = pg_query($conn, $sql);
                 header("Location: Account-management.php");
             }
         }

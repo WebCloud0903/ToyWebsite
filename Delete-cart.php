@@ -10,6 +10,6 @@
 
 <?php
     $sql = "Delete from cart where Cart_ID = $id";
-    $qr = mysqli_query($conn, $sql);
+    $qr = pg_query($conn, $sql);
     header("Location: Cart.php");
 ?>

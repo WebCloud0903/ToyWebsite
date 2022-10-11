@@ -56,8 +56,8 @@
             <tbody>
                 <?php 
                     $sql = "select * from customer";
-                    $qr = mysqli_query($conn, $sql);
-                    while($row = mysqli_fetch_assoc($qr)){?>
+                    $qr = pg_query($conn, $sql);
+                    while($row = pg_fetch_assoc($qr)){?>
                         <tr>
                             <td><?=$row['Username']?></td>
                             <td><?=md5($row['Password'])?></td>

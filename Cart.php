@@ -21,13 +21,14 @@ include_once("connection.php");
                 $query = "UPDATE cart SET Quantity_Pro = Quantity_Pro + 1 where Username = '$user'
                 and Product_ID = '$id'";
             }
-            if(!mysqli_query($conn, $query)){
-                echo "Error".mysqli_error($conn);
+            if(!pg_query($conn, $query)){
+                echo "Error";
+                // .mysqli_error($conn);
             }
         }
 
         $Select = "Select * from cart c, product p where c.Product_ID = p.Product_ID and Username = '$user'";
-        $re = mysqli_query($conn, $Select);
+        $re = pg_query($conn, $Select);
         $sum = 0;
     }
     else{
@@ -78,7 +79,7 @@ include_once("connection.php");
             <div class="row">
                 
                 <?php
-                    while($row = mysqli_fetch_assoc($re)){?>
+                    while($row = pg_fetch_assoc($re)){?>
 
                     <div class="col-md-3">
                         <div class="card">

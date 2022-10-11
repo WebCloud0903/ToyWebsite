@@ -9,10 +9,10 @@
         
 
         $sql = "Select * from customer where Username='$uname' and Password='$pwd'";
-        $qr = mysqli_query($conn, $sql);
-        $r = mysqli_fetch_row($qr);
+        $qr = pg_query($conn, $sql);
+        $r = pg_fetch_row($qr);
 
-        if(mysqli_num_rows($qr) > 0){
+        if(pg_num_rows($qr) > 0){
             if($r[8] == 'Admin'){
                 $_SESSION['Admin'] = $r[0];
             }

@@ -36,7 +36,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="Home.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="About.php">About us</a></li>
                 <li><a href="Product.php">Product</a></li>
                 <li><a href="Admin-Logout.php">Log Out</a></li>

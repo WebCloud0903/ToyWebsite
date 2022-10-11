@@ -70,8 +70,8 @@
 
     <?php
         $sql = "Select * from cart where Cart_ID = $id";
-        $qr = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($qr);
+        $qr = pg_query($conn, $sql);
+        $row = pg_fetch_assoc($qr);
     ?>
 
     <?php
@@ -87,7 +87,7 @@
             }
             else{
                 $sql = "Update cart set Quantity_Pro = $qty where Cart_ID = $id";
-                $qr = mysqli_query($conn, $sql);
+                $qr = pg_query($conn, $sql);
                 header("Location: Cart.php");
             }
         }

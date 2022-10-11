@@ -10,6 +10,6 @@
 
 <?php
     $sql = "Delete from customer where Username = '$user'";
-    $qr = mysqli_query($conn, $sql);
+    $qr = pg_query($conn, $sql);
     header("Location: Account-management.php");
 ?>

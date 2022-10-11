@@ -53,8 +53,8 @@
                 }
                 else{
                     $sql = "Select * from product where Name like '%$search%'";
-                    $qr = mysqli_query($conn, $sql);
-                    $count = mysqli_num_rows($qr);
+                    $qr = pg_query($conn, $sql);
+                    $count = pg_num_rows($qr);
 
                     if($count <= 0){
                         echo "Don't find with key: ". $search;
@@ -68,7 +68,7 @@
                         
                         <div class="row">
                             <?php
-                                while($row = mysqli_fetch_assoc($qr)) { 
+                                while($row = pg_fetch_assoc($qr)) { 
                             ?>
                                 <div class="col-md-3">
                                     <form class="card" method="post" action="">
@@ -100,8 +100,8 @@
             <?php
                 include_once("connection.php");
                 $sql = "Select * from product";
-                $qr = mysqli_query($conn, $sql);
-                while($row = mysqli_fetch_assoc($qr)) { ?>
+                $qr = pg_query($conn, $sql);
+                while($row = pg_fetch_assoc($qr)) { ?>
 
             <div class="col-md-3">
                 <form class="card" method="post" action="">

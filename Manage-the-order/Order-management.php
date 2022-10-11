@@ -54,8 +54,8 @@
             <tbody>
                 <?php 
                     $sql = "select * from orders";
-                    $qr = mysqli_query($conn, $sql);
-                    while($row = mysqli_fetch_assoc($qr)){?>
+                    $qr = pg_query($conn, $sql);
+                    while($row = pg_fetch_assoc($qr)){?>
                         <tr>
                             <td><?=$row['Order_ID']?></td>
                             <td><?=$row['Username']?></td>   

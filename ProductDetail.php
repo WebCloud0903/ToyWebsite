@@ -48,8 +48,8 @@
 
                 <?php
                     $sql = "Select Name, Price, Pro_img, Pro_detail from product where Name = '$name'";
-                    $qr = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_assoc($qr);
+                    $qr = pg_query($conn, $sql);
+                    $row = pg_fetch_assoc($qr);
                 ?>
 
                 <div class="total-detail">
