@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                    <a class="navbar-brand" href="index.php"><img src="./Image/shoeLogo.webp"></a>
+                    <a class="navbar-brand" href="index.php"><img src="./Image/10Logo-toys.jpg"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -105,13 +105,12 @@
             <div class="col-md-3">
                 <form class="card" method="post" action="">
                     <img
-                    src="./Image/<?=$row['Pro_img']?>" class="card-img-top" alt="Product1>" name="img"/>
+                    src="./Image/<?=$row['pro_image']?>" class="card-img-top" alt="Product1>" name="img"/>
                     <div class="card-body">
-                    <a href="ProductDetail.php?name=<?=$row['Name']?>"
-                     class="text-decoration-none"><h5 class="name-shoe"><?=$row['Name']?></h5></a>
-                    <h6 class="card-subtitle mb-2 price"><span>&#8363;</span><?=$row['Price']?></h6>
+                    <a class="text-decoration-none"><h5 class="name-shoe"><?=$row['name']?></h5></a>
+                    <h6 class="card-subtitle mb-2 price"><span>&#8363;</span><?=$row['sale_price']?></h6>
                     <input type="number" class="quantity" name="qty"/>
-                    <button type="submit" class="btn btn-primary" id="btn" name="addcart"><a href="Cart.php?id=<?=$row['Product_ID']?>">Add to Cart</a></button>
+                    <button type="submit" class="btn btn-primary" id="btn" name="addcart"><a href="Cart.php?id=<?=$row['id']?>">Add to Cart</a></button>
                     </div>
                 </form>
             </div>
