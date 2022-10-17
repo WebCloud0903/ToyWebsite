@@ -226,11 +226,11 @@
                             <div class="media">
                                 <div class="pull-left">
                                     <a href="#">
-                                        <img src="./Image/4plane.webp" class="img-responsive media-object">
+                                        <img src="./Image/2.jpg" class="img-responsive media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Plane</a></h4>
+                                    <h4 class="media-heading">Gun</a></h4>
                                     <p>$2.500.000</p>
                                     <button type="button" class="btn btn-primary mb-3"><a href="Product.php">Learn more</a></button>
                                 </div>

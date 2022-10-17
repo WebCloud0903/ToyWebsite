@@ -37,17 +37,17 @@
 
             <div class="col-sm-12" id="total-content">
                 <div class="col-sm-6" id="content">
-                    Online Shoe-Shop web is a website that I created to introduction to everyone about my products.<br>
+                    Online Toy-Store web is a website that I created to introduction to everyone about my products.<br>
                     The branch located at P8, Dinh Tien Hoang Road, Vinh Long City.<br>
                     My branch is established in 2021.<br>
                     Contact me: 0931927908<br>
-                    My website sells shoes and all of them made in Vietname. With the desire to create good shoe products for everyone. Especially is students, teenager and someone who prefer them. 
+                    My website sells toys and all of them made in Vietname. With the desire to create good toy products for everyone. Especially is students, teenager and someone who prefer them. 
                     Our products offer a guarantee of quality and affordable prices for everyone.
-                    Come to us to be able to choose for you a suitable pair of shoes to cherish your feet.
+                    Come to us to be able to choose for you a suitable toys.
                 </div>
 
                 <div class="sol-sm-6">
-                    <img class="image" src="./Image/Totalpfshoe.jpg">
+                    <img class="image" src="./Image/th (1).jpg">
                 </div>
             </div>
             <hr>

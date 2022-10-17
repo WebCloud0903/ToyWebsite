@@ -22,10 +22,10 @@
         $uname = $_POST['username'];
         $email = $_POST['email'];
         
-        $sql = "Select Username from customer where Username = '$uname'";
+        $sql = "Select username from account where username = '$uname'";
         $qr = pg_query($conn, $sql);
 
-        $sql2 = "Select Email from customer where Email = '$email'";
+        $sql2 = "Select email from account where email = '$email'";
         $re = pg_query($conn, $sql2);
 
         if(pg_num_rows($qr) > 0){
@@ -37,11 +37,9 @@
         else{
             $pwd = md5($_POST['password']);
             $confirmPwd = md5($_POST['confirmpassword']);
-            $fullname = $_POST['fullname'];
             $address = $_POST['address'];
             $phone = $_POST['telephone'];
             $gender = $_POST['gender'];
-            $birthday = $_POST['birthday'];
             $type = $_POST['type'];
 
 
@@ -51,21 +49,15 @@
             else if($confirmPwd != $pwd){
                 echo "<script>alert('Confirm password incorrectly')</script>";
             }
-            else if(strlen($fullname) > 20){
-                echo "<script>alert('Please, enter fullname and must be smaller or equal 20 characters')</script>";
-            }
             else if(strlen($phone) > 10 || strlen($phone) < 10){
                 echo "<script>alert('Invalid telephone')</script>";
             }
             else if($gender == ""){
                 echo "<script>alert('Please, enter gender')</script>";
             }
-            else if($birthday == ""){
-                echo "<script>alert('Please, enter birthday')</script>";
-            }
             else{
-                $sql = "Insert into customer(Username, Password, Fullname, Email, Address, Telephone, Gender, Birthday, Type)
-                        Values('$uname', '$pwd', '$fullname', '$email', '$address', '$phone', '$gender', '$birthday', '$type')";
+                $sql = "Insert into account(username, password, email, phone, address, gender, type)
+                        Values('$uname', '$pwd', '$email', '$phone', '$address', '$gender', '$type')";
                 $qr = pg_query($conn, $sql);
                 header("Location: Login.php");
             }
@@ -102,13 +94,6 @@
             </div>
 
             <div class="form-group">
-                <label for="fullname" class="col-sm-2 label-control" style="color:white">Full name(*)</label>
-                <div class="col-sm-10">
-                    <input type="text" name="fullname" id="fullname" class="form-control" required>
-                </div>
-            </div>
-
-            <div class="form-group">
                 <label for="email" class="col-sm-2 label-control" style="color:white">Email(*)</label>
                 <div class="col-sm-10">
                     <input type="email" name="email" id="email" class="form-control" required>
@@ -139,12 +124,12 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="birthday" class="col-sm-2 control-label">Birthday</label>
                 <div class="col-sm-10">
                     <input type="date" name="birthday" id="birthday" required>
                 </div>
-            </div>
+            </div> -->
 
             <div class="form-group">
                 <label for="birthday" class="col-sm-2 control-label">Type Account</label>
