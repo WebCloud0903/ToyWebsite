@@ -79,7 +79,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.php"><img src="./Image/shoeLogo.webp"></a>
+                        <a class="navbar-brand" href="index.php"><img src="./Image/10Logo-toys.jpg"></a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
@@ -103,7 +103,7 @@
                 
                 <div class="row heading">
                     <div class="title col-md-12">
-                        <h1>Huu Duy Store</h1>
+                        <h1>Huu Duy Toy Store</h1>
                         <h4>Welcome <?php 
                         if(isset($_SESSION['login']))
                         {
@@ -114,7 +114,7 @@
                        </h4>
                         <div id="welcome">
                             <marquee direction="left" behavior="scroll" scrollamount="5">
-                                Welcome to the online website - shoes store 
+                                Welcome to the online website - Toy Store 
                             </marquee>
                         </div>
                         <div class="marquee">
@@ -178,11 +178,11 @@
                             <div class="media">
                                 <div class="pull-left">
                                     <a href="#">
-                                        <img src="./Image/Balencia-black.jpg" class="img-responsive media-object">
+                                        <img src="./Image/5robot.jpg" class="img-responsive media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Balencia Black</a></h4>
+                                    <h4 class="media-heading">Robot</a></h4>
                                     <p>$2.000.000</p>
                                     <button type="button" class="btn btn-primary mb-3"><a href="Product.php">Learn more</a></button>
                                 </div>
@@ -193,12 +193,12 @@
                             <div class="media">
                                 <div class="pull-left">
                                     <a href="#">
-                                        <img src="./Image/Converse-red.jpg" class="img-responsive media-object">
+                                        <img src="./Image/7moto.jpg" class="img-responsive media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Converse Red</a></h4>
-                                    <p>$1.500.000</p>
+                                    <h4 class="media-heading">Moto</a></h4>
+                                    <p>$2.500.000</p>
                                     <button type="button" class="btn btn-primary mb-3"><a href="Product.php">Learn more</a></button>
                                 </div>
                             </div>
@@ -211,12 +211,12 @@
                             <div class="media">
                                 <div class="pull-left">
                                     <a href="#">
-                                        <img src="./Image/Nike-air-jodan.jpg" class="img-responsive media-object">
+                                        <img src="./Image/1oto.jpg" class="img-responsive media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Nike Air Jodan</a></h4>
-                                    <p>$2.500.000</p>
+                                    <h4 class="media-heading">Oto</a></h4>
+                                    <p>$3.000.000</p>
                                     <button type="button" class="btn btn-primary mb-3"><a href="Product.php">Learn more</a></button>
                                 </div>
                             </div>
@@ -226,11 +226,11 @@
                             <div class="media">
                                 <div class="pull-left">
                                     <a href="#">
-                                        <img src="./Image/Nike-Air-1.jpg" class="img-responsive media-object">
+                                        <img src="./Image/4plane.webp" class="img-responsive media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading">Nike Air Force 1</a></h4>
+                                    <h4 class="media-heading">Plane</a></h4>
                                     <p>$2.500.000</p>
                                     <button type="button" class="btn btn-primary mb-3"><a href="Product.php">Learn more</a></button>
                                 </div>
@@ -252,7 +252,7 @@
                 <footer class="footer">
                     <div>
                         &copy; Copyright: 11-5-2022<br>
-                        Shoe Store Online., HD-Vietnam Branch<br>
+                        Toy Store Online., HD-Vietnam Branch<br>
                         Address: P8 - Dinh Tien Hoang - TP Vinh Long<br>
                         Tel: 0931927908<br>
                         Created by: Do Huu Duy
