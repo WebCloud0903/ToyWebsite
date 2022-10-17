@@ -13,10 +13,10 @@
         $r = pg_fetch_row($qr);
 
         if(pg_num_rows($qr) > 0){
-            if($r[7] == 'Admin'){
+            if($r[6] == 'Admin'){
                 $_SESSION['Admin'] = $r[0];
             }
-            else if($r[7] == 'User'){
+            else if($r[6] == 'User'){
                 $_SESSION['login'] = $r[0];
             }
             
