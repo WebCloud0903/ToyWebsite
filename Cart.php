@@ -10,16 +10,16 @@ include_once("connection.php");
         $user = $_SESSION['login'];
         if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $sql = "Select Product_ID from cart where Username = '$user' and Product_ID = '$id'";
+            $sql = "Select product_id from cart where username = '$user' and product_id = '$id'";
             $qr = pg_query($conn, $sql);
 
             if(pg_num_rows($qr) == 0){
-                $query = "INSERT INTO cart(username, Product_ID, Quantity_Pro, Date)
+                $query = "INSERT INTO cart(username, product_id, qty_pro, date)
                 Values('$user', '$id', 1, CURDATE())";
             }
             else{
-                $query = "UPDATE cart SET Quantity_Pro = Quantity_Pro + 1 where Username = '$user'
-                and Product_ID = '$id'";
+                $query = "UPDATE cart SET qty_pro =qty_pro  + 1 where username = '$user'
+                and product_id = '$id'";
             }
             if(!pg_query($conn, $query)){
                 echo "Error";
@@ -27,7 +27,7 @@ include_once("connection.php");
             }
         }
 
-        $Select = "Select * from cart c, product p where c.Product_ID = p.Product_ID and Username = '$user'";
+        $Select = "Select * from cart c, product p where c.product_id = p.id and username = '$user'";
         $re = pg_query($conn, $Select);
         $sum = 0;
     }
@@ -84,20 +84,20 @@ include_once("connection.php");
                     <div class="col-md-3">
                         <div class="card">
                             <img
-                            src="./Image/<?=$row['Pro_img']?>" class="card-img-top" alt="Product1"/>
+                            src="./Image/<?=$row['pro_image']?>" class="card-img-top" alt="Product1"/>
                             <div class="card-body">
-                                <a href="ProductDetail.php" class="text-decoration-none"><h5 class="name-shoe"><?=$row['Name']?></h5></a>
-                                <h6 class="card-subtitle mb-2 price"><span>&#8363;</span><?=$row['Price'] * $row['Quantity_Pro']?></h6>
-                                <input type="number" class="quantity" name="quantity" value="<?=$row['Quantity_Pro']?>" readonly/>
-                                <a href="Update-cart.php?id=<?=$row['Cart_ID']?>" class="btn btn-primary" id="btn-update">Update</a><br>
+                                <!-- <a ></h5></a> -->
+                                <h6 class="card-subtitle mb-2 price"><span>&#8363;</span><?=$row['sale_price'] * $row['qty_pro']?></h6>
+                                <input type="number" class="quantity" name="quantity" value="<?=$row['qty_pro']?>" readonly/>
+                                <a href="Update-cart.php?id=<?=$row['id']?>" class="btn btn-primary" id="btn-update">Update</a><br>
                                 <!-- <a href="#" class="btn btn-primary" id="btn-order">Order</a> -->
-                                <a href="Delete-cart.php?id=<?=$row['Cart_ID']?>" class="btn btn-primary" id="btn-delete">Delete</a>
+                                <a href="Delete-cart.php?id=<?=$row['id']?>" class="btn btn-primary" id="btn-delete">Delete</a>
                             </div>
                         </div>
                     </div>
 
                     <?php 
-                    $sum = $sum + $row['Price'] * $row['Quantity_Pro']; 
+                    $sum = $sum + $row['sale_price'] * $row['qty_pro']; 
                     ?>
 
                 <?php } ?>
