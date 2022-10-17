@@ -87,7 +87,8 @@ include_once("connection.php");
                             src="./Image/<?=$row['pro_image']?>" class="card-img-top" alt="Product1"/>
                             <div class="card-body">
                                 <!-- <a ></h5></a> -->
-                                <h6 class="card-subtitle mb-2 price"><span>&#8363;</span><?=$row['sale_price'] * $row['qty_pro']?></h6>
+                                <h6 class="card-subtitle mb-2 price"><span>&#8363;</span><?=$row['sale_price'] * $row['qty_pro']?></h6>\
+                                <h6><?=$row['date']?></h6>
                                 <input type="number" class="quantity" name="quantity" value="<?=$row['qty_pro']?>" readonly/>
                                 <a href="Update-cart.php?id=<?=$row['id']?>" class="btn btn-primary" id="btn-update">Update</a><br>
                                 <!-- <a href="#" class="btn btn-primary" id="btn-order">Order</a> -->
