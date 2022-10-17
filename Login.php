@@ -5,7 +5,7 @@
     
     if(isset($_POST['login'])){
         $uname = $_POST['txtUsername'];
-        $pwd = md5($_POST['txtPassword']);
+        $pwd = $_POST['txtPassword'];//md5
         
 
         $sql = "Select * from account where username='$uname' and password='$pwd'";

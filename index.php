@@ -216,7 +216,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">Oto</a></h4>
-                                    <p>$3.000.000</p>
+                                    <p>$2.500.000</p>
                                     <button type="button" class="btn btn-primary mb-3"><a href="Product.php">Learn more</a></button>
                                 </div>
                             </div>
@@ -231,7 +231,7 @@
                                 </div>
                                 <div class="media-body">
                                     <h4 class="media-heading">Gun</a></h4>
-                                    <p>$2.500.000</p>
+                                    <p>$2.000.000</p>
                                     <button type="button" class="btn btn-primary mb-3"><a href="Product.php">Learn more</a></button>
                                 </div>
                             </div>
