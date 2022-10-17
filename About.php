@@ -12,6 +12,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="About.css">
+    <style>
+        body{
+            background: url('./Image/9Headu-Web.jpg');
+        }
+
+    </style>
 
 </head>
 <body>
