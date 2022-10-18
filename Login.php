@@ -18,7 +18,7 @@
                 $_SESSION['Admin'] = $r[0];
             }
             else if($r[6] == 'User'){
-                $_SESSION['login'] = $uname;//login
+                $_SESSION['login'] = $r[0];//login
                
                 
             }
