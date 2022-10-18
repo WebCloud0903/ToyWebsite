@@ -19,10 +19,11 @@
             }
             else if($r[6] == 'User'){
                 $_SESSION['login'] = $r[0];//login
+                print_r($_SESSION);
                 
             }
             // echo $_SESSION['login'];
-            header("Location: index.php");
+            // header("Location: index.php");
         }
         else{
             echo "<script>alert('Invalid username or password')</script>";
