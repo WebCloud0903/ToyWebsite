@@ -46,10 +46,11 @@
             <thead>
                 <tr>
                     <th scope="col">Product_ID</th>
+                    <th scope="col">Pro_img</th>
                     <th scope="col">Name</th>
                     <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Pro_img</th>
+                    <th scope="col">Original Price</th>
+                    <th scope="col">Sale Price</th>
                     <th scope="col">Status</th>
                     <th scope="col"><a href="Add.php">Add</a></th>
                 </tr>
@@ -60,14 +61,14 @@
                     $qr = pg_query($conn, $sql);
                     while($row = pg_fetch_assoc($qr)){?>
                         <tr>
-                            <td><?=$row['Product_ID']?></td>
-                            <td><?=$row['Name']?></td>   
-                            <td><?=$row['Quantity']?></td>
-                            <td><?=$row['Price']?></td>
-                            <td><?=$row['Pro_img']?></td>
-                            <td><?=$row['Pro_detail']?></td>
-                            <td><?=$row['Status']?></td>
-                            <td><a href="Update.php?id=<?= $row['Product_ID'] ?>">Update</a> | <a href="Delete.php?id=<?= $row['Product_ID']?>">Delete</a></td>
+                            <td><?=$row['id']?></td>
+                            <td><?=$row['pro_image']?></td>
+                            <td><?=$row['name']?></td>   
+                            <td><?=$row['quantity']?></td>
+                            <td><?=$row['original_price']?></td>
+                            <td><?=$row['sale_price']?></td>
+                            <td><?=$row['status']?></td>
+                            <td><a href="Update.php?id=<?= $row['id'] ?>">Update</a> | <a href="Delete.php?id=<?= $row['id']?>">Delete</a></td>
                         </tr>
                     <?php } ?>
             </tbody>

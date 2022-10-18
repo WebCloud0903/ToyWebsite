@@ -46,7 +46,6 @@
                     <th scope="col">OrderDate</th>
                     <th scope="col">DeliveryDate</th>
                     <th scope="col">Payment</th>
-                    <th scope="col">Address</th>
                     <th scope="col">Status</th>
                     <th scope="col">Function</th>
                 </tr>
@@ -57,15 +56,14 @@
                     $qr = pg_query($conn, $sql);
                     while($row = pg_fetch_assoc($qr)){?>
                         <tr>
-                            <td><?=$row['Order_ID']?></td>
-                            <td><?=$row['Username']?></td>   
-                            <td><?=$row['OrderDate']?></td>
-                            <td><?=$row['DeliveryDate']?></td>
-                            <td><?=$row['Payment']?></td>
-                            <td><?=$row['Address']?></td>
-                            <td><?=$row['Status']?></td>
-                            <td><a href="Comfirm-order.php?id=<?=$row['Order_ID']?>">Confirm</a> |
-                             <a href="Delete-order.php?id=<?=$row['Order_ID']?>">Delete</a></td>
+                            <td><?=$row['order_id']?></td>
+                            <td><?=$row['username']?></td>   
+                            <td><?=$row['orderdate']?></td>
+                            <td><?=$row['deliverydate']?></td>
+                            <td><?=$row['payment']?></td>
+                            <td><?=$row['status']?></td>
+                            <td><a href="Comfirm-order.php?id=<?=$row['order_id']?>">Confirm</a> |
+                             <a href="Delete-order.php?id=<?=$row['order_id']?>">Delete</a></td>
                         </tr>
                     <?php } ?>
             </tbody>

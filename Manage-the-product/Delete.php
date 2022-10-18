@@ -9,7 +9,7 @@
 ?>
 
 <?php
-    $sql = "Delete from product where Product_ID = '$id'";
+    $sql = "Delete from product where id = '$id'";
     $qr = pg_query($conn, $sql);
     header("location: Product-management.php");
 ?>

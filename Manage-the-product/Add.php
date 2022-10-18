@@ -9,7 +9,7 @@
     <style>
 
     body{
-        background: url('../Image/Background-shoe-shop.jpg');
+        background: url('../Image/9Headu-Web.jpg');
     }
     .add-info{
         min-height: 100vh;
@@ -51,23 +51,25 @@
             $id = $_POST['Product_ID'];
             $name = $_POST['name'];
             $quantity = $_POST['quantity'];
-            $price = $_POST['price'];
+            $Oprice = $_POST['original_price'];
+            $Sprice = $_POST['sale_price'];
+
             $img = $_POST['pro_img'];
-            $detail = $_POST['pro_detail'];
             $status = $_POST['status'];
 
             if($name == ""){echo "<li style='color: white'>Enter the name of product, please!</li>";}
 
             if($quantity == ""){echo "<li style='color: white'>Enter quantity of the product, please!</li>";}
 
-            if($price == ""){echo "<li style='color: white'>Enter price of the product, please!</li>";}
+            if($Oprice == ""){echo "<li style='color: white'>Enter original price of the product, please!</li>";}
+            if($Sprice == ""){echo "<li style='color: white'>Enter sale price of the product, please!</li>";}
 
 
             if($status == ""){echo "<li style='color: white'>Enter state of the product, please!</li>";}
 
-            if($id != "" && $name != "" && $quantity != "" && $price != "" && $status != ""){
-                $sql = "Insert into product(Product_ID, Name, Quantity, Price, Pro_img, Pro_detail, Status) 
-                values('$id', '$name', $quantity, $price, '$img', '$detail', '$status')";
+            if($id != "" && $name != "" && $quantity != "" && $Oprice != "" && $Sprice != "" && $status != ""){
+                $sql = "Insert into product(id, name, quantity, original_price, sale_price, pro_image, status) 
+                values('$id', '$name', $quantity, $Oprice, $Sprice, '$img', '$status')";
                 $qr = pg_query($conn, $sql);
                 header("location: Product-management.php");
             }
@@ -81,9 +83,9 @@
                 <label>Product_ID</label><input type="text" name="Product_ID"/><br><br>
                 <label>Name</label><input type="text" name="name"/><br><br>
                 <label>Quantity</label><input type="text" name="quantity"/><br><br>
-                <label>Price</label><input type="text" name="price"/><br><br>
+                <label>Original Price</label><input type="text" name="original_price"/><br><br>
+                <label>Sale Price</label><input type="text" name="sale_price"/><br><br>
                 <label>Pro_img</label><input type="text" name="pro_img"/><br><br>
-                <label>Pro_detail</label><input type="text" name="pro_detail"/><br><br>
                 <label>Status</label><input type="text" name="status"/><br><br>
                 <button type="submit" class="btn btn-primary" name="add">Add</button>
             </form>

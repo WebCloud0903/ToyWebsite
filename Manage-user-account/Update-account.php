@@ -9,7 +9,7 @@
     <style>
 
         body{
-                background: url('../Image/Background-shoe-shop.jpg');
+                background: url('../Image/9Headu-Web.jpg');
                 background-size: auto;
             }
         .add-info{
@@ -56,7 +56,7 @@
     ?>
 
     <?php
-        $sql = "Select * from customer where Username = '$user '";
+        $sql = "Select * from account where username = '$user '";
         $qr = pg_query($conn, $sql);
         $row = pg_fetch_array($qr);
     ?>
@@ -65,19 +65,17 @@
         if(isset($_POST['update'])){
             $uname = $_POST['username'];
             $pwd = md5($_POST['password']);
-            $fullname = $_POST['fullname'];
             $email = $_POST['email'];
             $address = $_POST['address'];
             $phone = $_POST['telephone'];
             $gender = $_POST['gender'];
-            $birthday = $_POST['birthday'];
             $type = $_POST['type'];
 
-            if(!empty($uname) && !empty($pwd) && !empty($fullname) && !empty($email) && !empty($address) && !empty($phone)
-               && !empty($gender) && !empty($birthday) && !empty($type)){
-                $sql = "Update customer set Username='$uname', Password='$pwd', Fullname='$fullname', Email='$email',
-                        Address='$address', Telephone='$phone', Gender='$gender', Birthday='$birthday', Type='$type' 
-                        where Username = '$user'";
+            if(!empty($uname) && !empty($pwd) && !empty($email) && !empty($address) && !empty($phone)
+               && !empty($gender) && !empty($type)){
+                $sql = "Update account set username='$uname', password='$pwd', email='$email',
+                        address='$address', phone='$phone', gender='$gender', type='$type' 
+                        where username = '$user'";
                 $qr = pg_query($conn, $sql);
                 header("Location: Account-management.php");
             }
@@ -88,17 +86,17 @@
     <div class="add-info">
        <div class="cover">
             <form method="post" action="" class="form-update">
-                <label>Username</label><input type="text" name="username" value="<?=$row['Username']?>"/><br><br>
-                <label>Password</label><input type="text" name="password" value="<?=$row['Password']?>"/><br><br>
-                <label>Fullname</label><input type="text" name="fullname" value="<?=$row['Fullname']?>"/><br><br>
-                <label>Email</label><input type="text" name="email" value="<?=$row['Email']?>"/><br><br>
-                <label>Address</label><input type="text" name="address" value="<?=$row['Address']?>"/><br><br>
-                <label>Telephone</label><input type="text" name="telephone" value="<?=$row['Telephone']?>"/><br><br>
+                <label>Username</label><input type="text" name="username" value="<?=$row['username']?>"/><br><br>
+                <label>Password</label><input type="text" name="password" value="<?=$row['password']?>"/><br><br>
+               
+                <label>Email</label><input type="text" name="email" value="<?=$row['email']?>"/><br><br>
+                <label>Address</label><input type="text" name="address" value="<?=$row['address']?>"/><br><br>
+                <label>Telephone</label><input type="text" name="telephone" value="<?=$row['phone']?>"/><br><br>
                 <div>
-                    <label>Gender:</label><input type="text" name="gender" value="<?=$row['Gender']?>"></input>
+                    <label>Gender:</label><input type="text" name="gender" value="<?=$row['gender']?>"></input>
                 </div><br>
-                <label>Birthday</label><input type="text" name="birthday" value="<?=$row['Birthday']?>"/><br><br>
-                <label>Type</label><input type="text" name="type" value="<?=$row['Type']?>"/><br><br>
+            
+                <label>Type</label><input type="text" name="type" value="<?=$row['type']?>"/><br><br>
 
                 <button type="submit" class="btn btn-primary" name="update">Update</button>
             </form>

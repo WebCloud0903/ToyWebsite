@@ -9,7 +9,7 @@
     <style>
 
     body{
-        background: url('../Image/Background-shoe-shop.jpg');
+        background: url('../Image/9Headu-Web.jpg');
     }
     .add-info{
         min-height: 100vh;
@@ -53,10 +53,10 @@ if(isset($_POST['add'])){
     $uname = $_POST['username'];
     $email = $_POST['email'];
     
-    $sql = "Select Username from customer where Username = '$uname'";
+    $sql = "Select username from account where username = '$uname'";
     $qr = pg_query($conn, $sql);
 
-    $sql2 = "Select Email from customer where Email = '$email'";
+    $sql2 = "Select email from account where email = '$email'";
     $re = pg_query($conn, $sql2);
 
     if(pg_num_rows($qr) > 0){
@@ -66,13 +66,11 @@ if(isset($_POST['add'])){
         echo "<script>alert ('Email already exist')</Script>";
     }
     else{
-        $pwd = md5($_POST['password']);
-        $confirmPwd = md5($_POST['confirmpass']);
-        $fullname = $_POST['fullname'];
+        $pwd = $_POST['password'];
+        $confirmPwd = $_POST['confirmpass'];
         $address = $_POST['address'];
         $telephone = $_POST['telephone'];
         $gender = $_POST['gender'];
-        $birthday = $_POST['birthday'];
         $type = $_POST['type'];
 
 
@@ -82,21 +80,15 @@ if(isset($_POST['add'])){
         else if($confirmPwd != $pwd){
             echo "<script>alert('Confirm password incorrectly')</script>";
         }
-        else if(strlen($fullname) > 20){
-            echo "<script>alert('Please, enter fullname and must be smaller or equal 20 characters')</script>";
-        }
         else if(strlen($telephone) > 10 || strlen($telephone) < 10){
             echo "<script>alert('Invalid telephone')</script>";
         }
         else if($gender == ""){
             echo "<script>alert('Please, enter gender')</script>";
         }
-        else if($birthday == ""){
-            echo "<script>alert('Please, enter birthday')</script>";
-        }
         else{
-            $sql = "Insert into customer(Username, Password, Fullname, Email, Address, Telephone, Gender, Birthday, Type)
-                    Values('$uname', '$pwd', '$fullname', '$email', '$address', '$telephone', '$gender', '$birthday', '$type')";
+            $sql = "Insert into account(username, password, email, address, phone, gender, type)
+                    Values('$uname', '$pwd', '$email', '$address', '$telephone', '$gender', '$type')";
             $qr = pg_query($conn, $sql);
             header("Location: Account-management.php");
         }
@@ -124,7 +116,7 @@ if(isset($_POST['add'])){
                 <label>Username</label><input type="text" name="username"/><br><br>
                 <label>Password</label><input type="password" name="password"/><br><br>
                 <label>Confirm Password</label><input type="password" name="confirmpass"/><br><br>
-                <label>Fullname</label><input type="text" name="fullname"/><br><br>
+                <!-- <label>Fullname</label><input type="text" name="fullname"/><br><br> -->
                 <label>Email</label><input type="email" name="email"/><br><br>
                 <label>Address</label><input type="text" name="address"/><br><br>
                 <label>Telephone</label><input type="text" name="telephone"/><br><br>
@@ -136,8 +128,8 @@ if(isset($_POST['add'])){
                     <label for="female">Female</label>
                 </div><br>
 
-                <label>Birthday</label><input type="date" name="birthday"/><br><br>
-                <label>Type</label>
+                <!-- <label>Birthday</label><input type="date" name="birthday"/><br><br>
+                <label>Type</label> -->
                 <select style="margin-left: 43px" name="type">
                     <option value="Choose type">Choose type</option>
                     <option value="User" name="type">User</option>

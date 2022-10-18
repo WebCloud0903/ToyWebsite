@@ -6,7 +6,7 @@
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         // $confirm = 'Delivery';
-        $sql = "Update orders set Status = 'Delivery' , DeliveryDate = CURDATE() where Order_ID = $id";
+        $sql = "Update orders set status = 'Delivery' , deliverydate = CURDATE() where order_id = $id";
         $qr = pg_query($conn, $sql);
         header("Location: Order-management.php");
     }

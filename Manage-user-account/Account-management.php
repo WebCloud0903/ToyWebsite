@@ -43,33 +43,33 @@
                 <tr>
                     <th scope="col">Username</th>
                     <th scope="col">Password</th>
-                    <th scope="col">Fullname</th>
+                    <!-- <th scope="col">Fullname</th> -->
                     <th scope="col">Email</th>
                     <th scope="col">Address</th>
                     <th scope="col">Telephone</th>
                     <th scope="col">Gender</th>
-                    <th scope="col">Birthday</th>
+                    <!-- <th scope="col">Birthday</th> -->
                     <th scope="col">Type</th>
                     <th scope="col" style="width: 150px;"><a href="Add-account.php">Add</th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
-                    $sql = "select * from customer";
+                    $sql = "select * from account";
                     $qr = pg_query($conn, $sql);
                     while($row = pg_fetch_assoc($qr)){?>
                         <tr>
-                            <td><?=$row['Username']?></td>
-                            <td><?=md5($row['Password'])?></td>
-                            <td><?=$row['Fullname']?></td>
-                            <td><?=$row['Email']?></td>
-                            <td><?=$row['Address']?></td>
-                            <td><?=$row['Telephone']?></td>
-                            <td><?=$row['Gender']?></td>
-                            <td><?=$row['Birthday']?></td>
-                            <td><?=$row['Type']?></td>
-                            <td><a href="Update-account.php?user=<?=$row['Username']?>">Update</a>|
-                            <a href="Delete-account.php?user=<?=$row['Username']?>">Delete</a></td>
+                            <td><?=$row['username']?></td>
+                            <td><?=$row['password']?></td>
+                            
+                            <td><?=$row['email']?></td>
+                            <td><?=$row['address']?></td>
+                            <td><?=$row['phone']?></td>
+                            <td><?=$row['gender']?></td>
+                            
+                            <td><?=$row['type']?></td>
+                            <td><a href="Update-account.php?user=<?=$row['username']?>">Update</a>|
+                            <a href="Delete-account.php?user=<?=$row['username']?>">Delete</a></td>
                         </tr>
                     <?php } ?>
             </tbody>

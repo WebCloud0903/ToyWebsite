@@ -9,7 +9,7 @@
     <style>
 
         body{
-                background: url('../Image/Background-shoe-shop.jpg');
+                background: url('../Image/9Headu-Web.jpg');
             }
         .add-info{
             min-height: 100vh;
@@ -55,29 +55,31 @@
     ?>
  
     <?php
-        $sql = "Select * from product where Product_ID = '$id'";
+        $sql = "Select * from product where id = '$id'";
         $qr = pg_query($conn, $sql);
         $row = pg_fetch_assoc($qr);
     
         if(isset($_POST['update'])){
             $name = $_POST['name'];
             $quantity = $_POST['quantity'];
-            $price = $_POST['price'];
+            $Oprice = $_POST['original_price'];
+            $Sprice = $_POST['sale_price'];
             $img = $_POST['pro_img'];
-            $detail = $_POST['pro_detail'];
             $status = $_POST['status'];
 
             if($name == ""){echo "<li style='color: white'>Enter the name of product, please!</li>";}
 
             if($quantity == ""){echo "<li style='color: white'>Enter quantity of the product, please!</li>";}
 
-            if($price == ""){echo "<li style='color: white'>Enter price of the product, please!</li>";}
+            if($Oprice == ""){echo "<li style='color: white'>Enter original price of the product, please!</li>";}
+            if($Sprice == ""){echo "<li style='color: white'>Enter sale price of the product, please!</li>";}
+
 
             if($status == ""){echo "<li style='color: white'>Enter state of the product, please!</li>";}
 
-            if($name != "" && $quantity != "" && $price != "" && $status != ""){
-                $sql = "Update product set Name='$name', Quantity=$quantity, Price=$price, Pro_img='$img',
-                 Pro_detail='$detail', Status='$status' where Product_ID='$id'";
+            if($name != "" && $quantity != "" && $Oprice != "" && $Sprice != "" && $status != ""){
+                $sql = "Update product set name='$name', quantity=$quantity, original_price=$Oprice, sale_price=$Sprice,
+                pro_image='$img', status='$status' where id='$id'";
                 $qr = pg_query($conn, $sql);
                 header("location: Product-management.php");
             }
@@ -89,10 +91,11 @@
             <form method="post" action="" class="form-update">
                 <label>Name</label><input type="text" name="name" value="<?= $row['Name']?>"/><br><br>
                 <label>Quantity</label><input type="text" name="quantity" value="<?= $row['Quantity']?>"/><br><br>
-                <label>Price</label><input type="text" name="price" value="<?= $row['Price']?>"/><br><br>
-                <label>Pro_img</label><input type="text" name="pro_img" value="<?= $row['Pro_img']?>"/><br><br>
-                <label>Pro_detail</label><input type="text" name="pro_detail" value="<?= $row['Pro_detail']?>"/><br><br>
-                <label>Status</label><input type="text" name="status" value="<?= $row['Status']?>"/><br><br>
+                <label>Price</label><input type="text" name="original_price" value="<?= $row['original_price']?>"/><br><br>
+                <label>Price</label><input type="text" name="sale_price" value="<?= $row['sale_price']?>"/><br><br>
+                <label>Pro_img</label><input type="text" name="pro_img" value="<?= $row['pro_image']?>"/><br><br>
+                <!-- <label>Pro_detail</label><input type="text" name="pro_detail" value="<?= $row['Pro_detail']?>"/><br><br> -->
+                <label>Status</label><input type="text" name="status" value="<?= $row['status']?>"/><br><br>
                 <button type="submit" class="btn btn-primary" name="update">Update</button>
             </form>
        </div>
