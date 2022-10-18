@@ -14,7 +14,7 @@
         // $r = pg_fetch_array($qr, PGSQL_ASSOC);
 
         if(pg_num_rows($qr) > 0){
-            if($r[6] == 'Admin'){//$r[6]
+            if($r[6] == 'Admin'){
                 $_SESSION['Admin'] = $r[0];
             }
             else if($r[6] == 'User'){

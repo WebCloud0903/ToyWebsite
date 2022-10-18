@@ -109,13 +109,8 @@
                         {
                             echo $_SESSION['login'];?>
                             <a href="User-Logout.php" style='margin-left:1200px'>Logout</a>
-                       <?php }
-                       else{ ?>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="SignUp.php"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
-                                <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                            </ul>
-                     <?php  } ?>
+
+                    <?php } ?>
 
                        
                        </h4>
@@ -250,14 +245,7 @@
                             {?>
                                     <a href="Admin.php" id="admin">Admin</a>
                             
-                      <?php }
-                      else{ ?>
-                            <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="SignUp.php"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
-                                    <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                                </ul>
-                        
-                     <?php }?>
+                      <?php } ?>
 
                 </div>
 
