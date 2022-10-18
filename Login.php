@@ -8,16 +8,16 @@
         $pwd = $_POST['txtPassword'];//md5
         
 
-        $sql = "Select type from account where username='$uname' and password='$pwd'";
+        $sql = "Select * from account where username='$uname' and password='$pwd'";
         $qr = pg_query($conn, $sql);
-        // $r = pg_fetch_row($qr);
-        $r = pg_fetch_array($qr, PGSQL_ASSOC);
+        $r = pg_fetch_row($qr);
+        // $r = pg_fetch_array($qr, PGSQL_ASSOC);
 
         if(pg_num_rows($qr) > 0){
-            if($r['type'] == 'Admin'){//$r[6]
+            if($r[6] == 'Admin'){//$r[6]
                 $_SESSION['Admin'] = $r[0];
             }
-            else if($r['type'] == 'User'){
+            else if($r[6] == 'User'){
                 $_SESSION['login'] = $r[0];//login
             }
             
