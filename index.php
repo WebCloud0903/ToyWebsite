@@ -90,11 +90,10 @@
                          </ul>
 
                         <?php
-                            if(isset($_SESSION['login']) || isset($_SESSION['Admin']))
+                            if(!isset($_SESSION['login']) || !isset($_SESSION['Admin']))
                             {?>
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="User-Logout.php" style='margin-left:1200px'>Logout</a></li>
-                                    <!-- <li><a href="SignUp.php"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li> -->
+                                    <li><a href="SignUp.php"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
                                     <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                                 </ul>
                     <?php   } ?>

@@ -17,7 +17,7 @@
                 $_SESSION['Admin'] = $r[0];
             }
             else if($r[6] == 'User'){
-                $_SESSION['login'] = $r[0];
+                $_SESSION['User'] = $r[0];//login
             }
             
             header("Location: index.php");
