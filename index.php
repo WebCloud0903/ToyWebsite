@@ -109,7 +109,14 @@
                         {
                             echo $_SESSION['login'];?>
                             <a href="User-Logout.php" style='margin-left:1200px'>Logout</a>
-                       <?php } ?>
+                       <?php }
+                       else{ ?>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="SignUp.php"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
+                                <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            </ul>
+                     <?php  } ?>
+
                        
                        </h4>
                         <div id="welcome">
@@ -243,7 +250,14 @@
                             {?>
                                     <a href="Admin.php" id="admin">Admin</a>
                             
-                      <?php } ?>
+                      <?php }
+                      else{ ?>
+                            <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="SignUp.php"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
+                                    <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                </ul>
+                        
+                     <?php }?>
 
                 </div>
 
@@ -251,7 +265,7 @@
 
                 <footer class="footer">
                     <div>
-                        &copy; Copyright: 11-5-2022<br>
+                        &copy; Copyright: 18-10-2022<br>
                         Toy Store Online., HD-Vietnam Branch<br>
                         Address: P8 - Dinh Tien Hoang - TP Vinh Long<br>
                         Tel: 0931927908<br>
