@@ -35,8 +35,8 @@
             echo "<script>alert ('Email already exist')</Script>";
         }
         else{
-            $pwd = $_POST['password'];//md5
-            $confirmPwd = $_POST['confirmpassword'];//md5
+            $pwd = md5($_POST['password']);//md5
+            $confirmPwd = md5($_POST['confirmpassword']);//md5
             $address = $_POST['address'];
             $phone = $_POST['telephone'];
             $gender = $_POST['gender'];

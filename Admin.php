@@ -1,10 +1,10 @@
 <?php
-    // session_start();
-    // ob_start();
+    session_start();
+    ob_start();
 
-    // if(!isset($_SESSION['Admin'])){
-    //     header("Location: Login.php");
-    // }
+    if(!isset($_SESSION['Admin'])){
+        header("Location: Login.php");
+    }
     
 ?>
 <!DOCTYPE html>
