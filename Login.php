@@ -10,7 +10,7 @@
 
         $sql = "Select * from account where username='$uname' and password='$pwd'";
         $qr = pg_query($conn, $sql);
-        $r = pg_fetch_array($qr);
+        $r = pg_fetch_assoc($qr);
         // $r = pg_fetch_array($qr, PGSQL_ASSOC);
 
         if(pg_num_rows($qr) > 0){
@@ -18,7 +18,7 @@
                 $_SESSION['Admin'] = $r[0];
             }
             else if($r[6] == 'User'){
-                $_SESSION['login'] = 'user';//login
+                $_SESSION['login'] = $r[0];//login
                 
             }
             // echo $_SESSION['login'];
