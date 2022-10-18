@@ -69,7 +69,7 @@
     ?>
 
     <?php
-        $sql = "Select * from cart where Cart_ID = $id";
+        $sql = "Select * from cart where id = $id";
         $qr = pg_query($conn, $sql);
         $row = pg_fetch_assoc($qr);
     ?>
@@ -86,7 +86,7 @@
                 echo "<script>alert('Quantity must be larger than 1!')</script>";
             }
             else{
-                $sql = "Update cart set Quantity_Pro = $qty where Cart_ID = $id";
+                $sql = "Update cart set qty_pro = $qty where id = $id";
                 $qr = pg_query($conn, $sql);
                 header("Location: Cart.php");
             }
@@ -96,8 +96,8 @@
    <div class="add-info">
        <div class="cover">
             <form method="post" action="" class="form-update">
-                <label class="content"><?=$row['Product_ID']?></label><br>
-                <input type="number" class="quantity" name="quantity" value="<?=$row['Quantity_Pro']?>"/>
+                <label class="content"><?=$row['product_id']?></label><br>
+                <input type="number" class="quantity" name="quantity" value="<?=$row['qty_pro']?>"/>
                 <button type="submit" class="btn btn-primary" name="update">Update</button>
             </form>
        </div>
