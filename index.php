@@ -90,7 +90,7 @@
                          </ul>
 
                         <?php
-                            if(!isset($_SESSION['login']) && !isset($_SESSION['Admin']))
+                            if(!isset($_SESSION['login']) || !isset($_SESSION['Admin']))
                             {?>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="SignUp.php"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
