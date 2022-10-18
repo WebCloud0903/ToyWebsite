@@ -8,7 +8,7 @@
         $pwd = $_POST['txtPassword'];//md5
         
 
-        $sql = "Select type, username, pasword from account where username='$uname' and password='$pwd'";
+        $sql = "Select type from account where username='$uname' and password='$pwd'";
         $qr = pg_query($conn, $sql);
         // $r = pg_fetch_row($qr);
         $r = pg_fetch_assoc($qr);
