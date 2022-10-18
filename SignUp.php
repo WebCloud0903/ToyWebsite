@@ -134,7 +134,7 @@
             <div class="form-group">
                 <label for="birthday" class="col-sm-2 control-label">Type Account</label>
                 <div class="col-sm-10">
-                    <input type="text" name="type" id="type" value="Admin" readonly>
+                    <input type="text" name="type" id="type" value="User" readonly>
                 </div>
             </div>
 
