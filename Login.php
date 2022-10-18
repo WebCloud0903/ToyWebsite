@@ -15,10 +15,10 @@
 
         if(pg_num_rows($qr) > 0){
             if($r[6] == 'Admin'){
-                $_SESSION['Admin'] = $r[6];
+                $_SESSION['Admin'] = $r[0];
             }
             else if($r[6] == 'User'){
-                $_SESSION['login'] = $r[6];//login
+                $_SESSION['login'] = 'user';//login
                 
             }
             // echo $_SESSION['login'];
