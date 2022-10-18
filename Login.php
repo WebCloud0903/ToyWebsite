@@ -19,7 +19,7 @@
             }
             else if($r[6] == 'User'){
                 $_SESSION['login'] = $r[0];//login
-                print_r($_SESSION);
+                print_r($_SESSION['login']);
                 
             }
             // echo $_SESSION['login'];
