@@ -15,14 +15,15 @@
 
         if(pg_num_rows($qr) > 0){
             if($r['type'] == 'Admin'){
-                $_SESSION['Admin'] = $uname;
+                // $_SESSION['Admin'] = $uname;
+                echo "hello";
             }
             else if($r['type'] == 'User'){
-                $_SESSION['login'] = $uname;//login
+                // $_SESSION['login'] = $uname;//login
+                echo "hello";
             }
-            // echo $_SESSION['login'];
-            //  print_r($_SESSION);
-            header("Location: index.php");
+          
+            // header("Location: index.php");
         }
         else{
             echo "<script>alert('Invalid username or password')</script>";
