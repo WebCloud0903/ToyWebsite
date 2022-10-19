@@ -14,12 +14,12 @@
         // $r = pg_fetch_array($qr, PGSQL_ASSOC);
 
         if(pg_num_rows($qr) > 0){
-            if($r[5] == 'Admin'){
+            if($r[6] == 'Admin'){
                 $_SESSION['Admin'] = $uname;
                 // echo "<script>alert('hello')</script>";
                 header("Location: index.php");
             }
-            else if($r[5] == 'User'){
+            else if($r[6] == 'User'){
                 $_SESSION['login'] = $uname;//login
                 // echo "<script>alert('hello')</script>";
                 header("Location: index.php");
