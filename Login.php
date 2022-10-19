@@ -8,7 +8,7 @@
         $pwd = md5($_POST['txtPassword']);//md5
         
 
-        $sql = "Select * from account where username='$uname' and password='$pwd'";
+        $sql = "Select type from account where username='$uname' and password='$pwd'";
         $qr = pg_query($conn, $sql);
         $r = pg_fetch_assoc($qr);
         // $r = pg_fetch_array($qr, PGSQL_ASSOC);
@@ -19,8 +19,6 @@
             }
             else if($r['type'] == 'User'){
                 $_SESSION['login'] = $uname;//login
-               
-                
             }
             // echo $_SESSION['login'];
             //  print_r($_SESSION);
