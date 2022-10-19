@@ -17,13 +17,15 @@
             if($r[6] == 'Admin'){
                 // $_SESSION['Admin'] = $uname;
                 echo "<script>alert('hello')</script>";
+                header("Location: index.php");
             }
             else if($r[6] == 'User'){
                 // $_SESSION['login'] = $uname;//login
                 echo "<script>alert('hello')</script>";
+                header("Location: index.php");
             }
           
-            header("Location: index.php");
+            // header("Location: index.php");
         }
         else{
             echo "<script>alert('Invalid username or password')</script>";
