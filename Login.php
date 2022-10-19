@@ -14,16 +14,16 @@
         // $r = pg_fetch_array($qr, PGSQL_ASSOC);
 
         if(pg_num_rows($qr) > 0){
-            if($r['type'] == 'Admin'){
-                // $_SESSION['Admin'] = $uname;
-                echo "<script>alert('hello')</script>";
-            }
-            else if($r['type'] == 'User'){
-                // $_SESSION['login'] = $uname;//login
-                echo "<script>alert('hello')</script>";
-            }
+            // if($r['type'] == 'Admin'){
+            //     // $_SESSION['Admin'] = $uname;
+            //     echo "<script>alert('hello')</script>";
+            // }
+            // else if($r['type'] == 'User'){
+            //     // $_SESSION['login'] = $uname;//login
+            //     echo "<script>alert('hello')</script>";
+            // }
           
-            // header("Location: index.php");
+            header("Location: index.php");
         }
         else{
             echo "<script>alert('Invalid username or password')</script>";
