@@ -16,11 +16,11 @@
         if(pg_num_rows($qr) > 0){
             if($r['type'] == 'Admin'){
                 // $_SESSION['Admin'] = $uname;
-                echo "hello";
+                echo "<script>alert('hello')</script>";
             }
             else if($r['type'] == 'User'){
                 // $_SESSION['login'] = $uname;//login
-                echo "hello";
+                echo "<script>alert('hello')</script>";
             }
           
             // header("Location: index.php");
