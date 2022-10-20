@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order-Management.php</title>
+    <title>Order-Detail-Management</title>
     <link rel="stylesheet" type="text/css"
-    href="Order-management.css">
+    href="order-detail.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
@@ -37,41 +37,33 @@
             </ul>
         </div>
     </nav>
-    <div class="container mb-3">
-        <table class="table table-striped">
+    <div class="container mb-3" style="width: 560px">
+        <table class="table table-striped" style="width: 500px">
             <thead>
                 <tr>
-                    <th scope="col">Order_ID</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">OrderDate</th>
-                    <th scope="col">DeliveryDate</th>
-                    <th scope="col">Payment</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Function</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Product ID</th>
+                    <th scope="col">Quantity Product</th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
-                    $sql = "select * from orders";
+                    $sql = "select * from order_detail";
                     $qr = pg_query($conn, $sql);
                     while($row = pg_fetch_assoc($qr)){?>
                         <tr>
-                            <td><?=$row['order_id']?></td>
-                            <td><?=$row['username']?></td>   
-                            <td><?=$row['orderdate']?></td>
-                            <td><?=$row['deliverydate']?></td>
-                            <td><?=$row['payment']?></td>
-                            <td><?=$row['status']?></td>
-                            <td><a href="Comfirm-order.php?id=<?=$row['order_id']?>">Confirm</a> |
-                             <a href="Delete-order.php?id=<?=$row['order_id']?>">Delete</a> |
-                             <a href="../Order_detail/order-detail.php?id=<?$row['order_id']?>">Detail</a></td>
+                            <td><?=$row['orderdetail_id']?></td>
+                            <td><?=$row['order_id']?></td>   
+                            <td><?=$row['product_id']?></td>
+                            <td><?=$row['qty_product']?></td>
                         </tr>
                     <?php } ?>
             </tbody>
         </table>
 
         <div>
-            <a href="../Admin.php"><button type="button" class="btn btn-primary">Back</button></a>
+            <a href="../Manage-the-order/Order-management.php"><button type="button" class="btn btn-primary">Back</button></a>
         </div>
 
     

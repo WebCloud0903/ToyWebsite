@@ -31,38 +31,30 @@
         }
 
         //get number product in cart
-        $pg = "select count(product_id) as numerous from cart where username='user'";
+        $pg = "select count(product_id) as numerous from cart where username='$user'";
         $per = pg_query($conn, $pg);
         $a = pg_fetch_assoc($per);
         $m = $a['numerous'];
 
-
         //Get ID of order that just add
-        $add = "SELECT max(order_id) as od FROM public.orders where username = $user";
+        $add = "SELECT max(order_id) as id FROM public.orders";
         $qr = pg_query($conn, $add);
         $n = pg_fetch_assoc($qr);
-        $orderid = $n['od'];
-        
+        $orderid = $n['id'];
 
         //Get ID of product
         $sql2 = "Select * from public.cart where username = '$user'";
         $do = pg_query($conn, $sql2);
-        $row = pg_fetch_assoc($do);
+        $row = pg_fetch_all($do, PGSQL_ASSOC);
 
-        //insert into order detail
-        // while($row = pg_fetch_assoc($do)){
-            while($m > 0){
-                $a = "";
-            $a = $row['product_id'];
-            $qty_pro = $row['qty_pro'];
+        for($i = 0; $i < $m; $i++){
+            $a = $row[$i]['product_id'];
+            $qty_pro = $row[$i]['qty_pro'];
             $sql4 = "INSERT INTO public.order_detail(order_id, product_id, qty_product) VALUES ($orderid, '$a', $qty_pro)";
             $insert = pg_query($conn, $sql4);
-            $m = $m -1;
-            }
-        // }
-
+        }
         echo "<script>alert('Order successfully')</script>";
-        // echo "<script>window.location = 'index.php?status=order'</script>";
+        echo "<script>window.location = 'index.php?status=order'</script>";
 
 
     }
