@@ -64,7 +64,7 @@
                             <td><?=$row['status']?></td>
                             <td><a href="Comfirm-order.php?id=<?=$row['order_id']?>">Confirm</a> |
                              <a href="Delete-order.php?id=<?=$row['order_id']?>">Delete</a> |
-                             <a href="../Order_detail/order-detail.php?id=<?$row['order_id']?>">Detail</a></td>
+                             <a href="../Order_detail/order-detail.php?id=<?=$row['order_id']?>">Detail</a></td>
                         </tr>
                     <?php } ?>
             </tbody>

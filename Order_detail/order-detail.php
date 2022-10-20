@@ -49,7 +49,10 @@
             </thead>
             <tbody>
                 <?php 
-                    $sql = "select * from order_detail";
+                    if(isset($_GET['id'])){
+                        $id = $_GET['id'];
+                    }
+                    $sql = "select * from order_detail where order_id = $id";
                     $qr = pg_query($conn, $sql);
                     while($row = pg_fetch_assoc($qr)){?>
                         <tr>
