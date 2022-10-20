@@ -9,7 +9,7 @@
 ?>
 
 <?php
-    $sql = "Delete from cart where Cart_ID = $id";
+    $sql = "Delete from public.cart where product_id = $id";
     $qr = pg_query($conn, $sql);
     header("Location: Cart.php");
 ?>

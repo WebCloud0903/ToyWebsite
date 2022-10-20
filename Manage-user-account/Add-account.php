@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add product</title>
+    <title>Add account</title>
 
     <style>
 
@@ -21,8 +21,8 @@
     .cover{
         background: rgba(0, 0, 0, 0.8);
         box-shadow: 2px 2px 17px 10px rgb(255 255 255 / 80%);
-        width: 375px;
-        height: 450px;
+        width: 292px;
+        height: 485px;
     }
     .form-add{
         margin-top: 20px;
@@ -35,7 +35,7 @@
         margin-left: 20px;
     }
     .btn{
-        margin-left: 100px;
+        margin-left: 95px;
         margin-top: 20px;
         width: 100px;
     }
@@ -66,8 +66,8 @@ if(isset($_POST['add'])){
         echo "<script>alert ('Email already exist')</Script>";
     }
     else{
-        $pwd = $_POST['password'];
-        $confirmPwd = $_POST['confirmpass'];
+        $pwd = md5($_POST['password']);
+        $confirmPwd = md5($_POST['confirmpass']);
         $address = $_POST['address'];
         $telephone = $_POST['telephone'];
         $gender = $_POST['gender'];
@@ -87,7 +87,7 @@ if(isset($_POST['add'])){
             echo "<script>alert('Please, enter gender')</script>";
         }
         else{
-            $sql = "Insert into account(username, password, email, address, phone, gender, type)
+            $sql = "Insert into public.account(username, password, email, address, phone, gender, type)
                     Values('$uname', '$pwd', '$email', '$address', '$telephone', '$gender', '$type')";
             $qr = pg_query($conn, $sql);
             header("Location: Account-management.php");
@@ -113,13 +113,13 @@ if(isset($_POST['add'])){
    <div class="add-info">
        <div class="cover">
             <form method="post" action="" class="form-add">
-                <label>Username</label><input type="text" name="username"/><br><br>
-                <label>Password</label><input type="password" name="password"/><br><br>
-                <label>Confirm Password</label><input type="password" name="confirmpass"/><br><br>
+                <div><label>Username</label></div><input type="text" name="username"/><br><br>
+                <div><label>Password</label></div><input type="password" name="password"/><br><br>
+                <div><label>Confirm Password</label></div><input type="password" name="confirmpass"/><br><br>
                 <!-- <label>Fullname</label><input type="text" name="fullname"/><br><br> -->
-                <label>Email</label><input type="email" name="email"/><br><br>
-                <label>Address</label><input type="text" name="address"/><br><br>
-                <label>Telephone</label><input type="text" name="telephone"/><br><br>
+                <div><label>Email</label></div><input type="email" name="email"/><br><br>
+                <div><label>Address</label></div><input type="text" name="address"/><br><br>
+                <div><label>Phone</label></div><input type="text" name="telephone"/><br><br>
                 <div>
                     <label for="gender" class="col-sm-2 control-label">Gender: </label>
                     <input type="radio" name="gender" id="gender" value="Male" required>
@@ -130,11 +130,11 @@ if(isset($_POST['add'])){
 
                 <!-- <label>Birthday</label><input type="date" name="birthday"/><br><br>
                 <label>Type</label> -->
-                <select style="margin-left: 43px" name="type">
+                <div><select style="margin-left: 22px" name="type">
                     <option value="Choose type">Choose type</option>
                     <option value="User" name="type">User</option>
                     <option value="Admin" name="type">Admin</option>
-                </select>
+                </select></div>
                 <button type="submit" class="btn btn-primary" name="add">Add</button>
             </form>
        </div>

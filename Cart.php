@@ -10,12 +10,12 @@ include_once("connection.php");
         $user = $_SESSION['login'];
         if(isset($_GET['id'])){
             $id = $_GET['id'];
-            $sql = "Select product_id from cart where username = '$user' and product_id = '$id'";
+            $sql = "Select product_id from public.cart where username = '$user' and product_id = '$id'";
             $qr = pg_query($conn, $sql);
 
             if(pg_num_rows($qr) == 0){
-                $query = "INSERT INTO cart(username, product_id, qty_pro, date)
-                Values('$user', '$id', 1, CURDATE())";
+                $query = "INSERT INTO cart(username, product_id, qty_pro)
+                Values('$user', '$id', 1)";
             }
             else{
                 $query = "UPDATE cart SET qty_pro =qty_pro  + 1 where username = '$user'
@@ -27,7 +27,7 @@ include_once("connection.php");
             }
         }
 
-        $Select = "Select * from cart c, product p where c.product_id = p.id and username = '$user'";
+        $Select = "Select * from public.cart c, product p where c.product_id = p.id and username = '$user'";
         $re = pg_query($conn, $Select);
         $sum = 0;
     }
@@ -65,7 +65,7 @@ include_once("connection.php");
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                        <a class="navbar-brand" href="index.php"><img src="./Image/shoeLogo.webp"></a>
+                        <a class="navbar-brand" href="index.php"><img src="./Image/9Headu-Web.jpg"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -87,8 +87,8 @@ include_once("connection.php");
                             src="./Image/<?=$row['pro_image']?>" class="card-img-top" alt="Product1"/>
                             <div class="card-body">
                                 <!-- <a ></h5></a> -->
-                                <h6 class="card-subtitle mb-2 price"><span>&#8363;</span><?=$row['sale_price'] * $row['qty_pro']?></h6>\
-                                <h6><?=$row['date']?></h6>
+                                <h6 class="card-subtitle mb-2 price"><span>&#8363;</span><?=$row['sale_price'] * $row['qty_pro']?></h6>
+                               
                                 <input type="number" class="quantity" name="quantity" value="<?=$row['qty_pro']?>" readonly/>
                                 <a href="Update-cart.php?id=<?=$row['id']?>" class="btn btn-primary" id="btn-update">Update</a><br>
                                 <!-- <a href="#" class="btn btn-primary" id="btn-order">Order</a> -->

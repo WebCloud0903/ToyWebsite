@@ -9,7 +9,7 @@
 ?>
 
 <?php
-    $sql = "Delete from public.orders where order_id = '$id'";
+    $sql = "Delete from public.supplier where supplier_id = '$id'";
     $qr = pg_query($conn, $sql);
-    header("location: Order-management.php");
+    header("location: supplier-management.php");
 ?>

@@ -1,7 +1,7 @@
 <?php
     session_start();
-    // ob_start();
-    include_once("connecttion.php");
+    ob_start();
+    include_once("connection.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -91,7 +91,7 @@
                          </ul>
 
                         <?php
-                            if(!isset($_SESSION['login']) || !isset($_SESSION['Admin']))
+                            if(!isset($_SESSION['login']))
                             {?>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="SignUp.php"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
@@ -108,8 +108,20 @@
                         <h4>Welcome <?php 
                         if(isset($_SESSION['login']))
                         {
-                            echo $_SESSION['login'];?>
-                            <a href="User-Logout.php" style='margin-left:1200px'>Logout</a>
+                            $user = $_SESSION['login'];
+                            $sql = "select type from public.account where username = '$user' and type = 'User'";
+                            $re = pg_query($conn, $sql);    
+                            if($n = pg_num_rows($re) > 0){
+                                echo $_SESSION['login'] = $user; ?>
+                                <a href="User-Logout.php" style='margin-left:1200px'>Logout</a>
+                          <?php  }
+
+                          else{?>
+                                <a href="Admin.php" id="admin">Admin</a>
+                                <a href="User-Logout.php" style='margin-left:1200px'>Logout</a>
+                         <?php } ?>
+                            
+                            <!-- // <a href="User-Logout.php" style='margin-left:1200px'>Logout</a> -->
 
                     <?php } ?>
 

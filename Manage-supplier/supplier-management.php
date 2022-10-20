@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage user account</title>
-    <link rel="stylesheet" type="text/css" href="Account-management.css">
+    <title>Supplier-Management.php</title>
+    <link rel="stylesheet" type="text/css"
+    href="supplier-management.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
@@ -17,6 +18,10 @@
 
     <?php
         include_once("../connection.php");
+        // $sql = "select * from product";
+        // $re = mysqli_query($conn, $sql);
+
+
     ?>
 
     <nav class="nav navbar-default">
@@ -36,40 +41,31 @@
             </ul>
         </div>
     </nav>
-
     <div class="container mb-3">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Username</th>
-                    <th scope="col">Password</th>
-                    <!-- <th scope="col">Fullname</th> -->
-                    <th scope="col">Email</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Address</th>
-                    <th scope="col">Telephone</th>
-                    <th scope="col">Gender</th>
-                    <!-- <th scope="col">Birthday</th> -->
-                    <th scope="col">Type</th>
-                    <th scope="col" style="width: 150px;"><a href="Add-account.php">Add</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+    
+                    <th scope="col"><a href="Add-supplier.php">Add</a></th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
-                    $sql = "select * from public.account";
+                    $sql = "select * from public.supplier";
                     $qr = pg_query($conn, $sql);
                     while($row = pg_fetch_assoc($qr)){?>
                         <tr>
-                            <td><?=$row['username']?></td>
-                            <td><?=$row['password']?></td>
-                            
-                            <td><?=$row['email']?></td>
+                            <td><?=$row['supplier_id']?></td>
+                            <td><?=$row['name']?></td>   
                             <td><?=$row['address']?></td>
+                            <td><?=$row['email']?></td>
                             <td><?=$row['phone']?></td>
-                            <td><?=$row['gender']?></td>
-                            
-                            <td><?=$row['type']?></td>
-                            <td>
-                            <a href="Delete-account.php?user=<?=$row['username']?>">Delete</a></td>
+                            <td><a href="Update-supplier.php?id=<?= $row['supplier_id'] ?>">Update</a> | <a href="Delete-supplier.php?id=<?= $row['supplier_id']?>">Delete</a></td>
                         </tr>
                     <?php } ?>
             </tbody>
@@ -78,5 +74,12 @@
         <div>
             <a href="../Admin.php"><button type="button" class="btn btn-primary">Back</button></a>
         </div>
+
+        <!-- <div class="btn-group">
+            <a href="#"><button type="button" class="btn btn-primary" style="margin-left: 5px">Add new product</button></a>
+            <a href="#"><button type="button" class="btn btn-primary" style="margin-left: 5px">Update</button></a>
+            <a href="#"><button type="button" class="btn btn-primary" style="margin-left: 5px">Delete</button></a>
+        </div> -->
+    </div>
 </body>
 </html>

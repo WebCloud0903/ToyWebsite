@@ -32,11 +32,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php"><img src="../Image/shoeLogo.webp"></a>
+            <a class="navbar-brand" href="index.php"><img src="../Image/10Logo-toys.jpg"></a>
         </div>
         <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="nav navbar-nav">
-                <li><a href="../index.php.php">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <li><a href="../Product.php">Product</a></li>
             </ul>
         </div>
@@ -51,22 +51,29 @@
                     <th scope="col">Quantity</th>
                     <th scope="col">Original Price</th>
                     <th scope="col">Sale Price</th>
+                    <th scope="col">Shop_ID</th>
+                    <th scope="col">Supplier_ID</th>
+                    <th scope="col">Category_ID</th>
+
                     <th scope="col">Status</th>
                     <th scope="col"><a href="Add.php">Add</a></th>
                 </tr>
             </thead>
             <tbody>
                 <?php 
-                    $sql = "select * from product";
+                    $sql = "select * from public.product";
                     $qr = pg_query($conn, $sql);
                     while($row = pg_fetch_assoc($qr)){?>
                         <tr>
                             <td><?=$row['id']?></td>
-                            <td><?=$row['pro_image']?></td>
+                            <td><img src="../Image/<?=$row['pro_image']?>" alt="" class="img"></td>
                             <td><?=$row['name']?></td>   
                             <td><?=$row['quantity']?></td>
                             <td><?=$row['original_price']?></td>
                             <td><?=$row['sale_price']?></td>
+                            <td><?=$row['shop_id']?></td>
+                            <td><?=$row['supplier_id']?></td>
+                            <td><?=$row['category_id']?></td>
                             <td><?=$row['status']?></td>
                             <td><a href="Update.php?id=<?= $row['id'] ?>">Update</a> | <a href="Delete.php?id=<?= $row['id']?>">Delete</a></td>
                         </tr>

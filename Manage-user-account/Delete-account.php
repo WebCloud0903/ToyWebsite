@@ -9,7 +9,7 @@
 ?>
 
 <?php
-    $sql = "Delete from account where username = '$user'";
+    $sql = "Delete from public.account where username = '$user'";
     $qr = pg_query($conn, $sql);
     header("Location: Account-management.php");
 ?>

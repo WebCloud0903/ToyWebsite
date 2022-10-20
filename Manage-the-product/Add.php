@@ -21,8 +21,8 @@
     .cover{
         background: rgba(0, 0, 0, 0.8);
         box-shadow: 2px 2px 17px 10px rgb(255 255 255 / 80%);
-        width: 300px;
-        height: 400px;
+        width: 220px;
+        height: 530px;
     }
     .form-add{
         margin-top: 20px;
@@ -35,9 +35,12 @@
         margin-left: 20px;
     }
     .btn{
-        margin-left: 100px;
+        margin-left: 60px;
         width: 100px;
     }
+    select{
+            margin-left: 20px;
+        }
 
     </style>
 </head>
@@ -48,7 +51,6 @@
 
     <?php
         if(isset($_POST['add'])){
-            $id = $_POST['Product_ID'];
             $name = $_POST['name'];
             $quantity = $_POST['quantity'];
             $Oprice = $_POST['original_price'];
@@ -56,6 +58,9 @@
 
             $img = $_POST['pro_img'];
             $status = $_POST['status'];
+            $shop = $_POST['shop'];
+            $supplier = $_POST['supplier'];
+            $category = $_POST['category'];
 
             if($name == ""){echo "<li style='color: white'>Enter the name of product, please!</li>";}
 
@@ -67,26 +72,58 @@
 
             if($status == ""){echo "<li style='color: white'>Enter state of the product, please!</li>";}
 
-            if($id != "" && $name != "" && $quantity != "" && $Oprice != "" && $Sprice != "" && $status != ""){
-                $sql = "Insert into product(id, name, quantity, original_price, sale_price, pro_image, status) 
-                values('$id', '$name', $quantity, $Oprice, $Sprice, '$img', '$status')";
+            if($name != "" && $quantity != "" && $Oprice != "" && $Sprice != "" && $status != ""){
+                $sql = "Insert into public.product(name, quantity, original_price, sale_price, pro_image, status, category_id, supplier_id, shop_id) 
+                values('$name', $quantity, $Oprice, $Sprice, '$img', '$status', $category, $supplier, $shop)";
                 $qr = pg_query($conn, $sql);
                 header("location: Product-management.php");
             }
             
         }
     ?>
+    <?php
+        $pg = "select * from shop";
+        $n = pg_query($conn, $pg);
+    ?>
+    <?php
+        $sup = "select * from supplier";
+        $per = pg_query($conn, $sup);
+    ?>
+    <?php
+        $cate = "select * from public.category";
+        $ca = pg_query($conn, $cate);
+    ?>
 
    <div class="add-info">
        <div class="cover">
             <form method="post" action="" class="form-add">
-                <label>Product_ID</label><input type="text" name="Product_ID"/><br><br>
-                <label>Name</label><input type="text" name="name"/><br><br>
-                <label>Quantity</label><input type="text" name="quantity"/><br><br>
-                <label>Original Price</label><input type="text" name="original_price"/><br><br>
-                <label>Sale Price</label><input type="text" name="sale_price"/><br><br>
-                <label>Pro_img</label><input type="text" name="pro_img"/><br><br>
-                <label>Status</label><input type="text" name="status"/><br><br>
+                <div><label>Name</label></div><input type="text" name="name"/><br><br>
+                <div><label>Quantity</label></div><input type="text" name="quantity"/><br><br>
+                <div><label>Original Price</label></div><input type="text" name="original_price"/><br><br>
+                <div><label>Sale Price</label></div><input type="text" name="sale_price"/><br><br>
+
+                <!-- <div><label>Pro_img</label></div><input type="text" name="pro_img"/><br><br> -->
+                <div><label>Pro_img</label></div><input type="file"  name="pro_img" value=""/><br><br>
+
+                <div><label>Shop ID</label></div><select name="shop">><?php
+                    while($ro = pg_fetch_assoc($n)){?>
+                            <option value="<?=$ro['shop_id']?>"><?=$ro['name']?></option>
+                    <?php } ?>
+                </select></br> 
+
+                <div><label>Supplier ID</label></div><select name="supplier"><?php
+                    while($su = pg_fetch_assoc($per)){?>
+                            <option value="<?=$su['supplier_id']?>"><?=$su['name']?></option>
+                    <?php } ?>
+                </select></br>  
+                
+                <div><label>Category ID</label></div><select name="category"><?php
+                    while($category = pg_fetch_assoc($ca)){?>
+                            <option value="<?=$category['id']?>"><?=$category['name']?></option>
+                    <?php } ?>
+                </select></br> 
+
+                <div><label>Status</label></div><input type="text" name="status"/><br><br>
                 <button type="submit" class="btn btn-primary" name="add">Add</button>
             </form>
        </div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update product</title>
+    <title>Update account</title>
 
     <style>
 
@@ -56,9 +56,9 @@
     ?>
 
     <?php
-        $sql = "Select * from account where username = '$user '";
+        $sql = "Select * from public.account where username = '$user'";
         $qr = pg_query($conn, $sql);
-        $row = pg_fetch_array($qr);
+        $row = pg_fetch_assoc($qr);
     ?>
 
     <?php
@@ -73,7 +73,7 @@
 
             if(!empty($uname) && !empty($pwd) && !empty($email) && !empty($address) && !empty($phone)
                && !empty($gender) && !empty($type)){
-                $sql = "Update account set username='$uname', password='$pwd', email='$email',
+                $sql = "Update public.account set username='$uname', password='$pwd', email='$email',
                         address='$address', phone='$phone', gender='$gender', type='$type' 
                         where username = '$user'";
                 $qr = pg_query($conn, $sql);
@@ -91,7 +91,7 @@
                
                 <label>Email</label><input type="text" name="email" value="<?=$row['email']?>"/><br><br>
                 <label>Address</label><input type="text" name="address" value="<?=$row['address']?>"/><br><br>
-                <label>Telephone</label><input type="text" name="telephone" value="<?=$row['phone']?>"/><br><br>
+                <label>Phone</label><input type="text" name="telephone" value="<?=$row['phone']?>"/><br><br>
                 <div>
                     <label>Gender:</label><input type="text" name="gender" value="<?=$row['gender']?>"></input>
                 </div><br>

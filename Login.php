@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // ob_start();
+    ob_start();
     include_once("connection.php");
     
     if(isset($_POST['login'])){
@@ -8,24 +8,15 @@
         $pwd = md5($_POST['txtPassword']);//md5
         
 
-        $sql = "Select * from account where username='$uname' and password='$pwd'";
+        $sql = "Select * from public.account where username='$uname' and password='$pwd'";
         $qr = pg_query($conn, $sql);
-        $r = pg_fetch_row($qr);
+        $r = pg_fetch_assoc($qr);
         // $r = pg_fetch_array($qr, PGSQL_ASSOC);
 
         if(pg_num_rows($qr) > 0){
-            if($r[6] == 'Admin'){
-                $_SESSION['Admin'] = $uname;
-                // echo "<script>alert('hello')</script>";
-                header("Location: index.php");
-            }
-            else if($r[6] == 'User'){
-                $_SESSION['login'] = $uname;//login
-                // echo "<script>alert('hello')</script>";
-                header("Location: index.php");
-            }
+            $_SESSION['login'] = $uname;
           
-            // header("Location: index.php");
+            header("Location: index.php");
         }
         else{
             echo "<script>alert('Invalid username or password')</script>";
