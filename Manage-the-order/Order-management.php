@@ -48,6 +48,7 @@
                     <th scope="col">Payment</th>
                     <th scope="col">Status</th>
                     <th scope="col">Function</th>
+                    <!-- <th scope="col">Total orders in month</th> -->
                 </tr>
             </thead>
             <tbody>
@@ -72,6 +73,14 @@
 
         <div>
             <a href="../Admin.php"><button type="button" class="btn btn-primary">Back</button></a>
+        </div>
+
+        <div>
+            <a href="./Total-orders.php"><button type="button" class="btn btn-primary" style="margin-left: 60px; margin-top: -55px">Total Orders</button></a>
+        </div>
+
+        <div>
+            <a href="./Total-revenue.php"><button type="button" class="btn btn-primary" style="margin-left: 165px; margin-top: -95px">Total Revenue</button></a>
         </div>
 
     

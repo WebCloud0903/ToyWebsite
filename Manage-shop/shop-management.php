@@ -73,6 +73,7 @@
 
         <div>
             <a href="../Admin.php"><button type="button" class="btn btn-primary">Back</button></a>
+            <a href="./BestShop.php"><button type="button" class="btn btn-primary">The Best Sell Shop</button></a>
         </div>
 
         <!-- <div class="btn-group">

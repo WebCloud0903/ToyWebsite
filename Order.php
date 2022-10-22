@@ -52,6 +52,9 @@
             $qty_pro = $row[$i]['qty_pro'];
             $sql4 = "INSERT INTO public.order_detail(order_id, product_id, qty_product) VALUES ($orderid, '$a', $qty_pro)";
             $insert = pg_query($conn, $sql4);
+
+            $pgsql = "update public.product set quantity = quantity - $qty_pro";
+            $make = pg_query($conn, $pgsql);
         }
         echo "<script>alert('Order successfully')</script>";
         echo "<script>window.location = 'index.php?status=order'</script>";
