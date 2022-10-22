@@ -109,7 +109,6 @@
                     <div class="card-body">
                     <a class="text-decoration-none"><h5 class="name-shoe"><?=$row['name']?></h5></a>
                     <h6 class="card-subtitle mb-2 price"><span>&#8363;</span><?=$row['sale_price']?></h6>
-                    <input type="number" class="quantity" name="qty"/>
                     <button type="submit" class="btn btn-primary" id="btn" name="addcart"><a href="Cart.php?id=<?=$row['id']?>">Add to Cart</a></button>
                     </div>
                 </form>
