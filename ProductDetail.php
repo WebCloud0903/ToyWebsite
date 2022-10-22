@@ -47,7 +47,7 @@
                 ?>    
 
                 <?php
-                    $sql = "Select Name, Price, Pro_img, Pro_detail from product where Name = '$name'";
+                    $sql = "Select name, sale_price, pro_image from public.product where name like '%$name%'";
                     $qr = pg_query($conn, $sql);
                     $row = pg_fetch_assoc($qr);
                 ?>
