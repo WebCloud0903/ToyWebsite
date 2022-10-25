@@ -62,7 +62,7 @@
 
                         // echo "<script>alert($k + ' VND')</script>";
                         ?> 
-                            <div class ="total"><h3><?=$k?> VND</h3></div>                   
+                            <div class ="total"><h3><span>&#8363;</span><?=$k?></h3></div>                   
                         <?php
                     }
                     else{
