@@ -31,6 +31,9 @@
     .total{
         margin-left: 20px;
     }
+    label{
+        margin-left: 50px;
+    }
     
 
 </style>
@@ -45,7 +48,22 @@
     <div class="container mb-3">
     <div class="cover" style="margin-left:430px">
             <form method="post" action="" class="form-add">
-                <div><label style="color: white">Enter Month</label></div><input type="text" name="month"/><br><br>
+                <!-- <div><label style="color: white">Enter Month</label></div><input type="text" name="month"/><br><br> -->
+                <div><label style="color: white">Enter Month</label></div><select name="month" style="margin-left: 34px">
+                    <option value="">Choose Month</option> 
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>    
+                    <option value="5">5</option> 
+                    <option value="6">6</option> 
+                    <option value="7">7</option> 
+                    <option value="8">8</option> 
+                    <option value="9">9</option> 
+                    <option value="10">10</option> 
+                    <option value="11">11</option> 
+                    <option value="12">12</option> 
+                    </select><br><br>
                 <button type="submit" class="btn btn-primary" name="OK">OK</button>
                 <button class="btn btn-primary" name="Back" style="margin-left: 0px;"><a href="./Order-management.php">Back</button>
 
@@ -53,7 +71,6 @@
                 if(isset($_POST['OK'])){
                     $month = $_POST['month'];
 
-                    if($month > 0 && $month < 13){
                         $sql = "select Sum(p.sale_price - p.original_price) as total from product p, order_detail od where od.product_id = p.id and od.orderdetail_id in (select orderdetail_id from order_detail od, orders o where 
                             od.order_id = o.order_id and extract(month from o.orderdate) = $month)";
                         $re = pg_query($conn, $sql);
@@ -61,20 +78,15 @@
                         $k = $n['total'];
 
                         // echo "<script>alert($k + ' VND')</script>";
-                        ?> 
-                            <div class ="total"><h3><span>&#8363;</span><?=$k?></h3></div>                   
-                        <?php
-                    }
-                    else{
-                        ?>
-                            <div><h3>Please, enter the month from 1 to 12!</h3></div>
-                        <?php    
-                    }
+                            ?> 
+                                <div class ="total"><h3><span>&#8363;</span><?=$k?></h3></div>                   
+                            <?php
+                   
                     
                 }
             ?>
             </form>
        </div>
-    </div>
+    </div>  
 </body>
 </html>

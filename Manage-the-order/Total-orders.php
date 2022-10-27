@@ -31,6 +31,9 @@
     .total{
         margin-left: 41px;
     }
+    label{
+        margin-left: 50px;
+    }
 
 </style>
 <body>
@@ -44,7 +47,22 @@
     <div class="container mb-3">
     <div class="cover" style="margin-left:430px">
             <form method="post" action="" class="form-add">
-                <div><label style="color: white">Enter Month</label></div><input type="text" name="month"/><br><br>
+                <!-- <div><label style="color: white">Enter Month</label></div><input type="text" name="month"/><br><br> -->
+                <div><label style="color: white">Enter Month</label></div><select name="month" style="margin-left: 34px">
+                    <option value="">Choose Month</option> 
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>    
+                    <option value="5">5</option> 
+                    <option value="6">6</option> 
+                    <option value="7">7</option> 
+                    <option value="8">8</option> 
+                    <option value="9">9</option> 
+                    <option value="10">10</option> 
+                    <option value="11">11</option> 
+                    <option value="12">12</option> 
+                </select><br><br>
                 <button type="submit" class="btn btn-primary" name="OK">OK</button>
                 <button class="btn btn-primary" name="Back" style="margin-left: 0px;"><a href="./Order-management.php">Back</button>
 
@@ -52,23 +70,17 @@
                     if(isset($_POST['OK'])){
                         $month = $_POST['month'];
 
-                        if($month > 0 && $month < 13){
+                        
                             $sql = "select Count(order_id) as total from orders where extract(Month from orderdate) = $month";
                             $re = pg_query($conn, $sql);
                             $n = pg_fetch_assoc($re);
                             $k = $n['total'];
 
-                            ?> 
+                                ?> 
                                  <div class ="total"><h3><?=$k?> Orders</h3></div>                   
-                            <?php
-                        }
-                        else{
-                            ?>
-                                <div><h3>Please, enter the month from 1 to 12!</h3></div>
-                            <?php
-                        }
-
-                        
+                                <?php
+                            
+                          
                     }
                 ?>
             </form>

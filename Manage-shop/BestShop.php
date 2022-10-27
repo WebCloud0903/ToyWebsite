@@ -16,7 +16,7 @@
 </head>
 <style>
     form{
-        max-width: 153px;
+        max-width: 170px;
         height: 150px;
         background: rgba(0, 0, 0, 0.8);
         flex-grow: 1;
@@ -46,7 +46,22 @@
           
     <div class="container mb-3">
         <form method="post">
-            <div><label style="color: white">Enter Month</label></div><input type="number" name="month"/><br><br>
+            <!-- <div><label style="color: white">Enter Month</label></div><input type="number" name="month"/><br><br> -->
+            <div><label style="color: white">Enter Month</label></div><select name="month">
+                <option value="">Choose Month</option> 
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>    
+                <option value="5">5</option> 
+                <option value="6">6</option> 
+                <option value="7">7</option> 
+                <option value="8">8</option> 
+                <option value="9">9</option> 
+                <option value="10">10</option> 
+                <option value="11">11</option> 
+                <option value="12">12</option> 
+            </select><br><br>
             <button type="submit" class="btn btn-primary" name="OK">OK</button>
         </form><br>
         
@@ -55,6 +70,7 @@
                 <tr>
                     <th scope="col">Times Sold</th>
                     <th scope="col">Name Shop</th>
+                    <th scope="col">Function</th>
                 </tr>
             </thead>
             <tbody>
@@ -63,29 +79,29 @@
                 if(isset($_POST['OK'])){
                     $month = $_POST['month'];
                     
-                    if($month > 0 && $month < 13){
-                        $m = $month;
-                        $sql = "select count(sh.name) as num, sh.name as name from public.shop sh, public.order_detail od,
-                            public.product p, public.orders o
-                            where sh.shop_id = p.shop_id and p.id = od.product_id and od.order_id = o.order_id 
-                            and o.orderdate in (select orderdate from orders where extract(month from o.orderdate) = $m)
-                            group by sh.shop_id";
-                        $qr = pg_query($conn, $sql);
+                    $m = $month;
+                    $sql = "select count(sh.name) as num, sh.name as name, sh.shop_id from public.shop sh, public.order_detail od,
+                        public.product p, public.orders o
+                        where sh.shop_id = p.shop_id and p.id = od.product_id and od.order_id = o.order_id 
+                        and o.orderdate in (select orderdate from orders where extract(month from o.orderdate) = $m)
+                        group by sh.shop_id";
+                    $qr = pg_query($conn, $sql);
                         
+                    if($n = pg_num_rows($qr) > 0){
                         while($row = pg_fetch_assoc($qr)){?>
                             <tr>
                                 <td><?=$row['num']?></td>
                                 <td><?=$row['name']?></td>   
+                                <td><a href="Revenue-detail.php?id=<?= $row['shop_id'] ?>">Detail</a>
                             </tr>
-                        <?php }    
+                        <?php }  
                     }
-                    else{
-                        ?>
-                            <div ><h3 class="mess">Please, enter the month from 1 to 12!</h3></div>
-                        <?php  
-                    }  
+                    else{?>
+                        <div ><h3 class="mess">This month have not data!</h3></div>
+                   <?php } 
                 }?>  
             </tbody>
+
         </table>
         <div>
             <a href="./shop-management.php"><button type="button" class="btn btn-primary">Back</button></a>
